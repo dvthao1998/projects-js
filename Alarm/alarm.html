@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./reset.css" />
+    <link rel="stylesheet" href="./alarm.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <title>Alarm | Thảo</title>
+  </head>
+  <body>
+    <div class="home-wrapper wrapper">
+      <div class="clock-top">
+        <p class="time">Local Time <b id="current-time">3:30:20</b></p>
+        <p class="date" id="date">Thursday 11 January</p>
+      </div>
+
+      <div class="clock-bottom">
+        <div class="clock-item">
+          <div class="item-img">
+            <img src="./img/alarm-fill.svg" alt="" />
+          </div>
+          <span> Alarm Clock </span>
+        </div>
+        <div class="clock-item">
+          <div class="item-img">
+            <img src="./img/alarm.svg" alt="" />
+          </div>
+          <span> Timer </span>
+        </div>
+        <div class="clock-item">
+          <div class="item-img">
+            <img src="./img/stopwatch-fill.svg" alt="" />
+          </div>
+          <span> Stop Watch </span>
+        </div>
+        <div class="clock-item">
+          <div class="item-img">
+            <img src="./img/clock.svg" alt="" />
+          </div>
+          <span> World Clock </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="detail-wrapper wrapper">
+      <div class="clock-top">
+        <div class="clock-top-live">
+          <div class="circle circle1" id="ss"><i></i></div>
+          <div class="circle circle2" id="mm"><i></i></div>
+          <div class="circle circle3" id="hh"><i></i></div>
+
+          <span style="--i: 1"><b>1</b></span>
+          <span style="--i: 2"><b>2</b></span>
+          <span style="--i: 3"><b>3</b></span>
+          <span style="--i: 4"><b>4</b></span>
+          <span style="--i: 5"><b>5</b></span>
+          <span style="--i: 6"><b>6</b></span>
+          <span style="--i: 7"><b>7</b></span>
+          <span style="--i: 8"><b>8</b></span>
+          <span style="--i: 9"><b>9</b></span>
+          <span style="--i: 10"><b>10</b></span>
+          <span style="--i: 11"><b>11</b></span>
+          <span style="--i: 12"><b>12</b></span>
+        </div>
+        <p class="time-alarm">Alarm in <b>2</b> hour <b>15</b> minutes</p>
+      </div>
+
+      <div class="clock-bottom">
+        <div class="clock-item">
+          <div class="item-img">
+            <img src="./img/alarm-fill.svg" alt="" />
+          </div>
+          <span> Alarm Clock </span>
+        </div>
+        <div class="clock-item">
+          <div class="item-img">
+            <img src="./img/alarm.svg" alt="" />
+          </div>
+          <span> Timer </span>
+        </div>
+        <div class="clock-item">
+          <div class="item-img">
+            <img src="./img/stopwatch-fill.svg" alt="" />
+          </div>
+          <span> Stop Watch </span>
+        </div>
+        <div class="clock-item">
+          <div class="item-img">
+            <img src="./img/clock.svg" alt="" />
+          </div>
+          <span> World Clock </span>
+        </div>
+      </div>
+    </div>
+
+    <script src="./alarm.js"></script>
+  </body>
+</html>
