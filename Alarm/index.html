@@ -20,7 +20,7 @@
       </div>
 
       <div class="clock-bottom">
-        <div class="clock-item">
+        <div class="clock-item" data-name="alarm">
           <div class="item-img">
             <img src="./img/alarm-fill.svg" alt="" />
           </div>
@@ -47,7 +47,7 @@
       </div>
     </div>
 
-    <div class="detail-wrapper wrapper">
+    <div class="detail-wrapper wrapper" data-name="alarm">
       <div class="clock-top">
         <div class="clock-top-live">
           <div class="circle circle1" id="ss"><i></i></div>
@@ -70,30 +70,27 @@
         <p class="time-alarm">Alarm in <b>2</b> hour <b>15</b> minutes</p>
       </div>
 
-      <div class="clock-bottom">
-        <div class="clock-item">
-          <div class="item-img">
-            <img src="./img/alarm-fill.svg" alt="" />
+      <div class="clock-bottom"></div>
+      <div class="add-alarm-btn">
+        <img src="./img/alarm-fill.svg" alt="" />
+      </div>
+      <div class="homepage-btn">
+        <img src="./img/back-arrow.svg" alt="" />
+      </div>
+
+      <div class="set-alarm-wrapper">
+        <div class="set-alarm-box">
+          <div class="set-hour">
+            <label for="hours">Choose a hour:</label>
+            <select id="hours"></select>
           </div>
-          <span> Alarm Clock </span>
-        </div>
-        <div class="clock-item">
-          <div class="item-img">
-            <img src="./img/alarm.svg" alt="" />
+
+          <div class="set-minute">
+            <label for="minutes">Choose a minute:</label>
+            <select id="minutes"></select>
           </div>
-          <span> Timer </span>
-        </div>
-        <div class="clock-item">
-          <div class="item-img">
-            <img src="./img/stopwatch-fill.svg" alt="" />
-          </div>
-          <span> Stop Watch </span>
-        </div>
-        <div class="clock-item">
-          <div class="item-img">
-            <img src="./img/clock.svg" alt="" />
-          </div>
-          <span> World Clock </span>
+
+          <button class="set-alarm-btn">Set Alarm</button>
         </div>
       </div>
     </div>
