@@ -88,7 +88,7 @@
 
 .detail-wrapper {
   min-height: 95vh;
-  /* display: none;*/
+  display: none;
   position: relative;
 }
 
