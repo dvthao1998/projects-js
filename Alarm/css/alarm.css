@@ -3,7 +3,7 @@
 @import "timer-wrapper.css";
 
 .alarm-wrapper {
-  display: none;
+  /* display: none; */
 }
 
 ::-webkit-scrollbar-thumb {

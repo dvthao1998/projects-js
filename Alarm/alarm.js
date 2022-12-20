@@ -1,3 +1,6 @@
+const $ = document.querySelector.bind(document);
+const $$ = document.querySelectorAll.bind(document);
+
 const hh = document.querySelector("#hh");
 const mm = document.querySelector("#mm");
 const ss = document.querySelector("#ss");
@@ -5,14 +8,23 @@ const currentTime = document.querySelector("#current-time");
 const currentDate = document.querySelector("#date");
 const clockItems = document.querySelectorAll(".home-wrapper .clock-item");
 const wrappers = document.querySelectorAll(".wrapper");
-const setAlarmWrapper = document.querySelector(".set-alarm-wrapper");
-const setAlarmBox = document.querySelector(".set-alarm-box");
-const addAlarmBtn = document.querySelector(".add-alarm-btn");
+const setAlarmWrapper = document.querySelector(
+  ".alarm-wrapper .set-alarm-wrapper"
+);
+const setTimerWrapper = document.querySelector(
+  ".timer-wrapper .set-alarm-wrapper"
+);
+const timerWrapper = document.querySelector(".timer-wrapper ");
+const setAlarmBox = document.querySelector(".alarm-wrapper .set-alarm-box");
+const setTimerBox = document.querySelector(".timer-wrapper .set-alarm-box");
+const addAlarmBtn = document.querySelector(".alarm-wrapper .add-alarm-btn");
+const addTimerBtn = document.querySelector(".timer-wrapper .add-alarm-btn");
 const listAlarm = document.querySelector(".detail-wrapper .clock-bottom");
+const listTimer = document.querySelector(".timer-wrapper .clock-bottom");
 const homepageBtns = document.querySelectorAll(".homepage-btn");
 const selectMenu = document.querySelectorAll("select");
-const setAlarmBtn = document.querySelector(".set-alarm-btn");
-
+const setAlarmBtn = document.querySelector(".alarm-wrapper .set-alarm-btn");
+const setTimerBtn = document.querySelector(".timer-wrapper .set-alarm-btn");
 let ringtone = new Audio("./sound/ringtone.mp3");
 
 // ===============NAVIGATE TO FEATURE ===================
@@ -80,7 +92,9 @@ setAlarmBtn.addEventListener("click", () => {
   listAlarm.insertAdjacentHTML("beforeend", time);
   setAlarmWrapper.style.display = "none";
 
-  const removeAlarmBtns = document.querySelectorAll(".remove-alarm");
+  const removeAlarmBtns = document.querySelectorAll(
+    ".detail-wrapper .remove-alarm"
+  );
 
   removeAlarmBtns.forEach((item) => {
     item.addEventListener("click", () => {
@@ -181,3 +195,91 @@ let showTime = function () {
 setInterval(function () {
   showTime();
 }, 1000);
+
+// ======================TIMER WRAPPER ====================================================================
+addTimerBtn.addEventListener("click", (e) => {
+  if (addTimerBtn.innerText === "Add") {
+    setTimerWrapper.style.display = "flex";
+  }
+});
+
+setTimerBtn.addEventListener("click", () => {
+  let time = `<div class="clock-item"><span class="span"> ${selectMenu[2].value} : ${selectMenu[3].value} </span> 
+  <div class="remove-alarm"><img src="./img/trash.svg" alt="" /></div></div>`;
+
+  listTimer.insertAdjacentHTML("beforeend", time);
+  setTimerWrapper.style.display = "none";
+  addTimerBtn.innerText = "Start";
+
+  document.querySelector(
+    ".timer-wrapper .time-alarm"
+  ).innerHTML = `<span >The timer setup will end in <b>${
+    parseInt(selectMenu[2].value) * 60 + parseInt(selectMenu[3].value)
+  }</b> minutes </span>`;
+
+  const removeTimerBtn = document.querySelector(".timer-wrapper .remove-alarm");
+  const timerItem = document.querySelector(".timer-wrapper .clock-item");
+
+  removeTimerBtn.addEventListener("click", () => {
+    timerItem.remove();
+    addTimerBtn.innerHTML = `<img src="./img/alarm.svg" alt="" />
+    Add`;
+  });
+
+  addTimerBtn.addEventListener("click", (e) => {
+    if (addTimerBtn.innerText === "Start") {
+      listTimer.classList.add("running");
+      timerWrapper.classList.add("run");
+      let hh = parseInt(selectMenu[2].value);
+      let mm = parseInt(selectMenu[3].value) - 1;
+
+      function startTimer() {
+        if (mm >= 0) {
+          $(
+            ".timer-wrapper .time-alarm"
+          ).innerHTML = `<span >The timer setup will end in <b>${
+            hh * 60 + mm
+          }</b> minutes </span>`;
+
+          $(".timer-wrapper .clock-item ").innerHTML = `<span >${
+            hh < 10 ? "0" + hh : hh
+          } : ${mm < 10 ? "0" + mm : mm}
+            </span> <div class="remove-alarm"><img src="./img/trash.svg" alt="" /></div>`;
+        }
+        if (mm < 0) {
+          $(
+            ".timer-wrapper .time-alarm"
+          ).innerHTML = `<span >The timer setup will end in <b>${
+            hh * 60 + mm
+          }</b> minutes </span>`;
+
+          $(".timer-wrapper .clock-item ").innerHTML = `<span >${
+            hh - 1 < 10 ? "0" + (hh - 1) : hh - 1
+          } : ${mm + 60 < 10 ? "0" + (mm + 60) : mm + 60}
+            </span> <div class="remove-alarm"><img src="./img/trash.svg" alt="" /></div>`;
+          mm = 59;
+          hh = hh - 1;
+        }
+        if (hh === 0 && mm === 0) {
+          $(
+            ".timer-wrapper .time-alarm"
+          ).innerHTML = `<span >The timer ended, please setup the new time </span>`;
+          listTimer.classList.remove("running");
+          timerWrapper.classList.remove("run");
+
+          return;
+        }
+        mm = mm - 1;
+      }
+      addTimerBtn.innerText = "Pause";
+    }
+    const myInterval = setInterval(startTimer, 300);
+    addTimerBtn.addEventListener("click", () => {
+      if (addTimerBtn.innerText === "Pause") {
+        clearInterval(myInterval);
+
+        console.log("cc");
+      }
+    });
+  });
+});
