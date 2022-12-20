@@ -1,0 +1,21 @@
+.timer-wrapper {
+  position: relative;
+}
+
+.timer-wrapper .add-alarm-btn {
+  width: 65px;
+  height: 40px;
+  position: absolute;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 25% 75% 75% 25% / 50% 47% 53% 50%;
+  border: 2px solid #fc5d26;
+  bottom: 2.5%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: antiquewhite;
+}

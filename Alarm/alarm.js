@@ -42,12 +42,14 @@ for (let i = 0; i < 24; i++) {
     i < 10 ? "0" + i : i
   }</option>`;
   selectMenu[0].insertAdjacentHTML("beforeend", option);
+  selectMenu[2].insertAdjacentHTML("beforeend", option);
 }
 for (let i = 0; i < 60; i++) {
   let option = `<option value="${i < 10 ? "0" + i : i}">${
     i < 10 ? "0" + i : i
   }</option>`;
   selectMenu[1].insertAdjacentHTML("beforeend", option);
+  selectMenu[3].insertAdjacentHTML("beforeend", option);
 }
 
 addAlarmBtn.addEventListener("click", () => {
@@ -55,19 +57,52 @@ addAlarmBtn.addEventListener("click", () => {
 });
 
 setAlarmWrapper.addEventListener("click", (e) => {
-  if (
-    !e.target.matches(".set-alarm-box") &&
-    setAlarmWrapper.contains(setAlarmBox) &&
-    !e.target.matches("select")
-  ) {
+  if (!e.target.matches(".set-alarm-box") && !setAlarmBox.contains(e.target)) {
     setAlarmWrapper.style.display = "none";
   }
 });
 
 setAlarmBtn.addEventListener("click", () => {
-  let time = `<div class="clock-item"><span> ${selectMenu[0].value}:${selectMenu[1].value} </span> </div>`;
+  let time = `<div class="clock-item"><span> ${selectMenu[0].value}:${selectMenu[1].value} </span> 
+  <div class="remove-alarm"><img src="./img/trash.svg" alt="" /></div></div>`;
+
+  document
+    .querySelectorAll(".detail-wrapper .clock-item span")
+    .forEach((item) => {
+      if (
+        `${item.innerText}` === `${selectMenu[0].value}:${selectMenu[1].value}`
+      ) {
+        alert("Báo thức này bạn đã đặt rồi!! Vui lòng chọn khung giờ khác ");
+        item.parentNode.remove();
+        setAlarmWrapper.style.display = "block";
+      }
+    });
   listAlarm.insertAdjacentHTML("beforeend", time);
   setAlarmWrapper.style.display = "none";
+
+  const removeAlarmBtns = document.querySelectorAll(".remove-alarm");
+
+  removeAlarmBtns.forEach((item) => {
+    item.addEventListener("click", () => {
+      item.parentNode.remove();
+    });
+  });
+
+  document.querySelector(
+    ".time-alarm"
+  ).innerHTML = `<span>This alarm will ring in <b>${
+    selectMenu[0].value - new Date().getHours() < 0
+      ? selectMenu[0].value - new Date().getHours() + 24
+      : selectMenu[0].value - new Date().getHours()
+  }</b> hour <b>${
+    selectMenu[1].value - new Date().getMinutes() < 0
+      ? selectMenu[1].value - new Date().getMinutes() + 60
+      : selectMenu[1].value - new Date().getMinutes()
+  }</b> minutes </span>`;
+
+  setTimeout(function () {
+    document.querySelector(".time-alarm").innerText = "";
+  }, 3000);
 });
 
 // =================== SHOW THE TIME ===================

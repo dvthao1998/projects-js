@@ -1,0 +1,17 @@
+@import "wrapper.css";
+@import "detail-wrapper.css";
+@import "timer-wrapper.css";
+
+.alarm-wrapper {
+  display: none;
+}
+
+::-webkit-scrollbar-thumb {
+  display: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* DETAIL WRAPPER */

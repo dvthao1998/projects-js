@@ -1,94 +1,4 @@
-.wrapper {
-  padding: 40px 10px;
-  background-color: #f2f3f7;
-  border-radius: 20px;
-  box-shadow: 20px 10px 40px rgb(217, 224, 238);
-  max-height: 95vh;
-  overflow: hidden;
-}
-
-.home-wrapper {
-  /* display: none; */
-}
-
-.clock-top {
-  margin-bottom: 50px;
-}
-
-.clock-top p {
-  text-align: center;
-  margin: 0 auto;
-  margin-bottom: 10px;
-}
-
-.clock-top p b {
-  font-weight: 500;
-}
-
-.clock-top .time {
-  font-size: 30px;
-  max-width: 200px;
-}
-
-.clock-top .time b {
-  color: #fc5d26;
-}
-
-.clock-bottom {
-  min-width: 250px;
-  max-height: 400px;
-  background: #f2f3f7;
-  padding: 5px;
-}
-
-.clock-item {
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  background-color: #e6e7e8;
-  box-shadow: 0px 5px 5px rgba(243, 240, 240, 0.3),
-    0px -5px 5px rgba(0, 0, 0, 0.3);
-  margin-top: 20px;
-  border-radius: 10px;
-  transition: 0.25s ease-in-out;
-}
-
-.clock-item:first-child {
-  margin: 0;
-}
-
-.clock-item:hover {
-  opacity: 0.6;
-}
-
-.item-img {
-  pointer-events: none;
-  width: 40px;
-  height: 40px;
-  background-color: #fc5d26;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 49% 51% 42% 58% / 67% 26% 74% 33%;
-}
-
-.item-img img {
-  width: 25px;
-  height: 25px;
-  opacity: 0.5;
-}
-
-.clock-item span {
-  pointer-events: none;
-}
-
-/* DETAIL WRAPPER */
-
 .detail-wrapper {
-  min-height: 95vh;
-  display: none;
   position: relative;
 }
 
@@ -204,22 +114,36 @@
   margin-top: 10px;
   font-size: 15px;
   max-width: 200px;
+  height: 25px;
+}
+.detail-wrapper .time-alarm span {
+  color: red;
+  animation: opacity 1.1s linear 1;
+  animation-delay: 2s;
+}
+@keyframes opacity {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
 .detail-wrapper .clock-bottom {
   min-width: 250px;
-  height: 200px;
+  height: 180px;
   overflow: auto;
   background: #f2f3f7;
-  border-left: 2px solid rgba(252, 93, 38, 0.9);
-  border-right: 2px solid rgba(252, 93, 38, 0.9);
-  border-bottom: 2px solid rgba(252, 93, 38, 0.9);
+  border: 2px solid rgba(252, 93, 38, 0.9);
 }
 
-.add-alarm-btn {
-  width: 40px;
+.detail-wrapper .add-alarm-btn {
+  width: 65px;
   height: 40px;
   position: absolute;
+  cursor: pointer;
+  user-select: none;
   border-radius: 25% 75% 75% 25% / 50% 47% 53% 50%;
   border: 2px solid #fc5d26;
   bottom: 2.5%;
@@ -236,7 +160,20 @@
   height: 50px;
 }
 
-.set-alarm-wrapper {
+.detail-wrapper .clock-bottom .clock-item .remove-alarm {
+  width: 35px;
+  height: 35px;
+  border: 2px solid #fc5d26;
+  border-radius: 50%;
+  padding: 3px;
+}
+
+.detail-wrapper .clock-bottom .clock-item img {
+  width: 100%;
+  height: 100%;
+}
+
+.detail-wrapper .set-alarm-wrapper {
   position: absolute;
   inset: 0;
   z-index: 10;
@@ -248,7 +185,7 @@
   align-items: center;
 }
 
-.set-alarm-wrapper .set-alarm-box {
+.detail-wrapper .set-alarm-wrapper .set-alarm-box {
   width: 90%;
   height: 200px;
   display: flex;
@@ -259,24 +196,16 @@
   background-color: #e6e7e8;
 }
 
-.set-alarm-wrapper .set-alarm-box select {
+.detail-wrapper .set-alarm-wrapper .set-alarm-box select {
   border: 1px solid #fc5d26;
   outline: none;
   margin-left: 10px;
   max-height: 100px;
 }
 
-.set-alarm-wrapper .set-alarm-box button {
+.detail-wrapper .set-alarm-wrapper .set-alarm-box button {
   padding: 5px;
   cursor: pointer;
-}
-
-::-webkit-scrollbar-thumb {
-  display: none;
-}
-
-::-webkit-scrollbar {
-  display: none;
 }
 
 .detail-wrapper .homepage-btn {
@@ -284,7 +213,7 @@
   height: 40px;
   position: absolute;
   border: 2px solid #fc5d26;
-  bottom: 2.5%;
+  top: 2.5%;
   left: 10px;
   padding: 5px;
   border-radius: 50%;
