@@ -13,6 +13,7 @@
     <title>Alarm | Thảo</title>
   </head>
   <body>
+    <!-- Homepage -->
     <div class="home-wrapper wrapper">
       <div class="clock-top">
         <p class="time">Local Time <b id="current-time">00:00:00</b></p>
@@ -26,19 +27,19 @@
           </div>
           <span> Alarm Clock </span>
         </div>
-        <div class="clock-item">
+        <div class="clock-item" data-name="timer">
           <div class="item-img">
             <img src="./img/alarm.svg" alt="" />
           </div>
           <span> Timer </span>
         </div>
-        <div class="clock-item">
+        <div class="clock-item" data-name="stopwatch">
           <div class="item-img">
             <img src="./img/stopwatch-fill.svg" alt="" />
           </div>
           <span> Stop Watch </span>
         </div>
-        <div class="clock-item">
+        <div class="clock-item" data-name="world-clock">
           <div class="item-img">
             <img src="./img/clock.svg" alt="" />
           </div>
@@ -47,6 +48,7 @@
       </div>
     </div>
 
+    <!-- Alarm -->
     <div class="detail-wrapper alarm-wrapper wrapper" data-name="alarm">
       <div class="clock-top">
         <div class="clock-top-live">
@@ -96,18 +98,25 @@
       </div>
     </div>
 
-    <div class="timer-wrapper wrapper" data-name="alarm">
+    <!-- Timer -->
+    <div class="timer-wrapper wrapper" data-name="timer">
       <div class="clock-top">
         <div class="clock-top-live">
           <img src="./img/timer-background.jpg" alt="" />
         </div>
-        <p class="time-alarm"></p>
+        <p class="time-alarm">
+          <span>Please Add The Time </span>
+        </p>
       </div>
 
       <div class="clock-bottom"></div>
-      <div class="add-alarm-btn">
-        <img src="./img/alarm.svg" alt="" />
-        Add
+      <div class="timer-btns">
+        <div class="add-alarm-btn timer-btn" style="--left: 25%">
+          <img src="./img/alarm.svg" alt="" />
+          Add
+        </div>
+        <div class="start-alarm-btn timer-btn" style="--left: 50%">Start</div>
+        <div class="pause-alarm-btn timer-btn" style="--left: 75%">Pause</div>
       </div>
       <div class="homepage-btn">
         <img src="./img/back-arrow.svg" alt="" />
@@ -130,6 +139,64 @@
       </div>
     </div>
 
-    <script src="./alarm.js"></script>
+    <!-- Stop Watch -->
+    <div class="stop-watch wrapper" data-name="stopwatch">
+      <div class="clock-top">
+        <div class="clock-top-live">
+          <img src="./img/stopWtach.png" alt="" />
+        </div>
+        <p class="time-alarm">
+          <span>
+            <span class="sec"> 00</span> <b>:</b> <span class="ms"> 00</span>
+          </span>
+        </p>
+      </div>
+
+      <div class="clock-bottom"></div>
+      <div class="timer-btns">
+        <div class="get-alarm-btn timer-btn" style="--left: 25%">Get</div>
+        <div class="start-alarm-btn timer-btn" style="--left: 50%">Start</div>
+        <div class="reset-alarm-btn timer-btn" style="--left: 75%">Reset</div>
+      </div>
+      <div class="homepage-btn">
+        <img src="./img/back-arrow.svg" alt="" />
+      </div>
+    </div>
+
+    <!-- World Clock -->
+    <div class="world-clock wrapper" data-name="world-clock">
+      <div class="clock-top">
+        <form>
+          <input
+            type="text"
+            name="name"
+            placeholder="Search Country"
+            autocomplete="off"
+          />
+          <button class="search-country">
+            <img src="./img/search-icon.png" alt="" />
+          </button>
+        </form>
+        <div class="list-country"></div>
+        <div class="clock-top-live">
+          <img src="./img/World-clock.png" alt="" />
+        </div>
+      </div>
+      <div class="homepage-btn">
+        <img src="./img/back-arrow.svg" alt="" />
+      </div>
+
+      <div class="clock-bottom">
+        <div class="clock-item">
+          <span>Search your country</span>
+          <p class="time">
+            <span>The time will</span>
+            <span class="time-style"> auto update in 5 sec</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/alarm.js" type="module"></script>
   </body>
 </html>

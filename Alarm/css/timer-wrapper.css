@@ -2,29 +2,48 @@
   position: relative;
 }
 
-.timer-wrapper .add-alarm-btn {
-  width: 65px;
+.timer-wrapper .timer-btns {
+  display: flex;
+  padding: 10px 0;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 40%;
+}
+
+.timer-wrapper .timer-btn {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
   height: 40px;
-  position: absolute;
+  transition: 0.24s linear;
+  padding: 3px;
+  /* position: absolute; */
   cursor: pointer;
   user-select: none;
-  border-radius: 25% 75% 75% 25% / 50% 47% 53% 50%;
-  border: 2px solid #fc5d26;
-  bottom: 2.5%;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1;
+  border-radius: 5px;
+  /* left: var(--left); */
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: antiquewhite;
+  background-color: #e6e7e8;
+}
+
+.timer-wrapper .timer-btn.disable {
+  pointer-events: none; /* stop Event */
+  opacity: 0.5;
+  box-shadow: none;
+}
+
+.timer-wrapper .timer-btn:hover {
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
 }
 
 .timer-wrapper .homepage-btn {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
   width: 40px;
   height: 40px;
+  transition: 0.24s linear;
   position: absolute;
-  border: 2px solid #fc5d26;
   top: 2.5%;
   left: 10px;
   padding: 5px;
@@ -35,6 +54,11 @@
   justify-content: center;
   align-items: center;
   background-color: antiquewhite;
+}
+
+.timer-wrapper .homepage-btn:hover {
+  box-shadow: none;
+  opacity: 0.7;
 }
 
 .timer-wrapper .clock-top {
@@ -53,25 +77,35 @@
   margin: 10px auto 30px;
   position: relative;
   overflow: hidden;
+  pointer-events: none;
+  transition: all 0.4s linear;
+  filter: grayscale(1);
+  border-radius: 15%;
+  animation: return 0.4s linear 1;
+}
+
+@keyframes return {
+  from {
+    transform: rotate(30deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
 }
 
 .timer-wrapper .clock-top-live img {
   width: 100%;
   height: 100%;
-  transition: 1s linear;
-  filter: grayscale(1);
-  border-radius: 50%;
-}
-/* ============================================ */
-.timer-wrapper.stop .clock-top-live img {
-  animation-play-state: paused;
 }
 
-.timer-wrapper.run .clock-top-live img {
+/* ============================================ */
+
+.timer-wrapper.run .clock-top-live {
   transform: scale(1.2);
-  /* transform: rotate(360deg); */
   filter: grayscale(0);
   animation: runImg 20s linear infinite;
+  animation-play-state: running;
+  border-radius: 50%;
 }
 
 @keyframes runImg {
@@ -100,7 +134,6 @@
   margin-top: 50px;
   overflow: auto;
   background: #f2f3f7;
-  border: 2px solid rgba(252, 93, 38, 0.9);
 }
 
 .timer-wrapper .clock-bottom .clock-item {

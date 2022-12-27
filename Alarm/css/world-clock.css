@@ -1,0 +1,246 @@
+.world-clock {
+  position: relative;
+  display: none;
+}
+
+.world-clock .clock-top {
+  margin-bottom: 0;
+}
+.world-clock .clock-top form {
+  width: 100%;
+  height: 50px;
+  padding: 5px 0;
+  position: relative;
+}
+.world-clock .clock-top form input {
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  padding: 10px 50px 10px 10px;
+  outline: none;
+  border: none;
+}
+.world-clock .clock-top form input:focus ~ div {
+  display: block;
+}
+.world-clock .clock-top form button {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border: none;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  right: 0;
+  top: 5px;
+  padding: 10px;
+  outline: none;
+  transition: 0.25s linear;
+  background-color: #fff;
+  cursor: pointer;
+}
+.world-clock .clock-top form button img {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.world-clock .clock-top-live {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: rgba(240, 241, 245, 0.5);
+  margin: 10px auto 30px;
+  position: relative;
+  overflow: hidden;
+}
+.world-clock .clock-top-live img {
+  width: 100%;
+  height: 100%;
+  transition: 1s linear;
+  border-radius: 50%;
+  animation: runImg 100s linear infinite;
+}
+
+@keyframes runImg {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+.list-country {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 200px;
+  border-radius: 5%;
+  background: #fff;
+  margin: 10px auto 30px;
+  overflow: auto;
+}
+.wrapper .list-country .country-item {
+  text-align: left;
+  padding: 10px;
+  margin: 0;
+  border-radius: 5px;
+  transition: 0.25s linear;
+}
+.list-country .country-item:hover {
+  background-color: #f7f7f8;
+}
+.list-country .country-item img {
+  width: 15px;
+  height: 15px;
+  margin-right: 20px;
+}
+.wrapper .list-country .country-empty {
+  display: none;
+  max-width: 250px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.world-clock .homepage-btn {
+  /* box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); */
+  width: 40px;
+  height: 40px;
+  transition: 0.24s linear;
+  position: absolute;
+  top: 1%;
+  left: 10px;
+  padding: 5px;
+  border-radius: 50%;
+  /* transform: translateX(-50%); */
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: antiquewhite; */
+}
+.world-clock .homepage-btn:hover {
+  box-shadow: none;
+  opacity: 0.7;
+}
+
+/* ============================================ */
+.world-clock.stop .clock-top-live img {
+  animation-play-state: paused;
+}
+
+.world-clock .time-alarm {
+  font-size: 15px;
+  max-width: 200px;
+  height: 25px;
+  color: red;
+}
+
+.world-clock .clock-bottom {
+  min-width: 250px;
+  padding: 10px;
+  padding-bottom: 0;
+  height: 180px;
+  margin-top: 10px;
+  overflow: auto;
+  background: #f2f3f7;
+  /* border: 2px solid #000; */
+}
+
+.world-clock .clock-bottom .clock-item {
+  padding: 10px 0;
+  margin-top: 20px;
+  height: 150px;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
+  box-shadow: none;
+}
+.world-clock .clock-bottom .clock-item .time {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  text-align: center;
+  padding: 10px 10px 0;
+  border-top: 2px solid gray;
+}
+
+.world-clock .clock-bottom .clock-item .time .time-style {
+  color: #663ad6;
+}
+
+.world-clock .clock-bottom .loading-skeleton {
+  height: 150px;
+  width: 100%;
+  background-color: #e6e7e8;
+  border-radius: 10px;
+  box-shadow: 0px 10px 5px rgb(243 240 240 / 30%), 5px 5px 10px rgb(0 0 0 / 30%);
+  position: relative;
+  overflow: hidden;
+}
+.world-clock .clock-bottom .loading-skeleton .l-title {
+  height: 70px;
+  padding-top: 20px;
+}
+.world-clock .clock-bottom .loading-skeleton .l-time {
+  height: 80px;
+  border-top: 2px solid gray;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+}
+.l {
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(221, 221, 221, 0.9);
+  height: 30px;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+.l-title-child {
+  height: 30px;
+  width: 100px;
+  margin: auto;
+}
+.l-date {
+  width: 110px;
+  height: 25px;
+}
+.l-hour {
+  height: 25px;
+  width: 80px;
+  margin-top: 10px;
+}
+
+.world-clock .clock-bottom .loading-skeleton::after,
+.world-clock .clock-bottom .loading-skeleton .l::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateX(-100%);
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0,
+    rgba(255, 255, 255, 0.2) 20%,
+    rgba(255, 255, 255, 0.5) 60%,
+    rgba(255, 255, 255, 0)
+  );
+  animation: shimmer 2s linear infinite;
+  content: "";
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.wrapper .list-country .country-item.hide {
+  display: none;
+}

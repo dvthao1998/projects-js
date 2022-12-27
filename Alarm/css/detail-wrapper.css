@@ -141,11 +141,11 @@
 .detail-wrapper .add-alarm-btn {
   width: 65px;
   height: 40px;
+  transition: 0.24s linear;
   position: absolute;
   cursor: pointer;
   user-select: none;
   border-radius: 25% 75% 75% 25% / 50% 47% 53% 50%;
-  border: 2px solid #fc5d26;
   bottom: 2.5%;
   left: 50%;
   transform: translateX(-50%);
@@ -153,7 +153,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: antiquewhite;
+  background-color: #e6e7e8;
+  box-shadow: 5px 5px 10px rgb(0 0 0 / 30%);
+}
+
+.detail-wrapper .add-alarm-btn:hover {
+  box-shadow: none;
 }
 
 .detail-wrapper .clock-bottom .clock-item {
@@ -209,10 +214,11 @@
 }
 
 .detail-wrapper .homepage-btn {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  transition: 0.24s linear;
   width: 40px;
   height: 40px;
   position: absolute;
-  border: 2px solid #fc5d26;
   top: 2.5%;
   left: 10px;
   padding: 5px;
@@ -223,4 +229,9 @@
   justify-content: center;
   align-items: center;
   background-color: antiquewhite;
+}
+
+.detail-wrapper .homepage-btn:hover {
+  opacity: 0.7;
+  box-shadow: none;
 }

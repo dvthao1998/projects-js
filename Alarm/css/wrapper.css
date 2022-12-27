@@ -4,7 +4,7 @@
   border-radius: 20px;
   box-shadow: 20px 10px 40px rgb(217, 224, 238);
   min-height: 550px;
-  max-height: 90vh;
+  max-height: 100vh;
   overflow: hidden;
 }
 
@@ -45,8 +45,8 @@
   align-items: center;
   padding: 10px;
   background-color: #e6e7e8;
-  box-shadow: 0px 5px 5px rgba(243, 240, 240, 0.3),
-    0px -5px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 10px 5px rgba(243, 240, 240, 0.3),
+    5px 5px 10px rgba(0, 0, 0, 0.3);
   margin-top: 20px;
   border-radius: 10px;
   transition: 0.25s ease-in-out;
@@ -57,7 +57,15 @@
 }
 
 .wrapper .clock-item:hover {
-  opacity: 0.6;
+  box-shadow: none;
+}
+
+.homepage-btn {
+  cursor: pointer;
+}
+.homepage-btn:hover {
+  opacity: 0.7;
+  box-shadow: none;
 }
 
 .wrapper .item-img {

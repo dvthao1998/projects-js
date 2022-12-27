@@ -1,9 +1,16 @@
 @import "wrapper.css";
 @import "detail-wrapper.css";
 @import "timer-wrapper.css";
+@import "world-clock.css";
+@import "stop-watch.css";
 
-.alarm-wrapper {
-  /* display: none; */
+.wrapper {
+  user-select: none;
+}
+
+.alarm-wrapper,
+.timer-wrapper {
+  display: none;
 }
 
 ::-webkit-scrollbar-thumb {

@@ -16,15 +16,5 @@ Social (Comment + Message Real Time)
 
 
 
-$(
-          ".timer-wrapper .time-alarm"
-        ).innerHTML = `<span >The timer setup will end in <b>${
-          parseInt(selectMenu[2].value) * 60 + mm - 1
-        }</b> minutes </span>`;
 
-        $(".timer-wrapper .clock-item span  ").innerText = `${hh} : ${
-          mm - 1
-        }  `;
-
-        listTimer.insertAdjacentHTML("beforeend", time);
 
