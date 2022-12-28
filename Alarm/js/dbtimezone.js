@@ -21,6 +21,10 @@ const timezone = [
   { name: "Poland", lat: 51.919437, lng: 19.145136 },
   { name: "British", lat: 18.4235, lng: -64.619827 },
   { name: "France", lat: 46.227638, lng: 2.213749 },
+  { name: "Dubai", lat: 25.204849, lng: 55.270782 },
+  { name: "Angola", lat: -11.202692, lng: 17.873886 },
+  { name: "Austria", lat: 47.516232, lng: 14.550072 },
+  { name: "India", lat: 20.593683, lng: 78.962883 },
 ];
 
 // ("https://www.latlong.net/convert-address-to-lat-long.html");

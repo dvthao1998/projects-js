@@ -4,8 +4,11 @@
   border-radius: 20px;
   box-shadow: 20px 10px 40px rgb(217, 224, 238);
   min-height: 550px;
-  max-height: 100vh;
+  max-height: 100%;
   overflow: hidden;
+  min-width: 300px;
+  max-width: 80%;
+  margin: 0 auto;
 }
 
 .wrapper .clock-top {

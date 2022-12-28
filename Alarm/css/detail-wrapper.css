@@ -135,7 +135,7 @@
   height: 180px;
   overflow: auto;
   background: #f2f3f7;
-  border: 2px solid rgba(252, 93, 38, 0.9);
+  /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); */
 }
 
 .detail-wrapper .add-alarm-btn {
@@ -162,15 +162,23 @@
 }
 
 .detail-wrapper .clock-bottom .clock-item {
+  box-shadow: none;
   height: 50px;
+  cursor: default;
 }
 
 .detail-wrapper .clock-bottom .clock-item .remove-alarm {
   width: 35px;
   height: 35px;
-  border: 2px solid #fc5d26;
   border-radius: 50%;
   padding: 3px;
+  transition: 0.25s linear;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), -2px -2px 5px rgba(0, 0, 0, 0.3);
+}
+.detail-wrapper .clock-bottom .clock-item .remove-alarm:hover {
+  box-shadow: none;
 }
 
 .detail-wrapper .clock-bottom .clock-item img {

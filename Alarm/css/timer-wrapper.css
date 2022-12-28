@@ -81,16 +81,6 @@
   transition: all 0.4s linear;
   filter: grayscale(1);
   border-radius: 15%;
-  animation: return 0.4s linear 1;
-}
-
-@keyframes return {
-  from {
-    transform: rotate(30deg);
-  }
-  to {
-    transform: rotate(0deg);
-  }
 }
 
 .timer-wrapper .clock-top-live img {
@@ -109,11 +99,11 @@
 }
 
 @keyframes runImg {
-  0% {
+  /* 0% {
     transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
+  } */
+  to {
+    transform: rotate(1turn);
   }
 }
 
@@ -140,6 +130,8 @@
   height: 100px;
   font-size: 50px;
   width: 100%;
+  box-shadow: none;
+  cursor: default;
 }
 
 .timer-wrapper .clock-bottom.running span {
@@ -156,14 +148,20 @@
 }
 
 .timer-wrapper .clock-bottom .clock-item .remove-alarm {
+  cursor: pointer;
   width: 50px;
   height: 50px;
-  border: 2px solid #fc5d26;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), -2px -2px 5px rgba(0, 0, 0, 0.3);
   border-radius: 50%;
   padding: 3px;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: 0.25s linear;
+}
+.timer-wrapper .clock-bottom .clock-item .remove-alarm:hover {
+  box-shadow: none;
 }
 
 .timer-wrapper .clock-bottom .clock-item img {

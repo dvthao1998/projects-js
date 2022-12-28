@@ -1,6 +1,7 @@
 .world-clock {
   position: relative;
   display: none;
+  max-width: 90%;
 }
 
 .world-clock .clock-top {

@@ -273,7 +273,6 @@ function handleRemoveTimer() {
 $(".start-alarm-btn").addEventListener("click", () => {
   if (isAvailble === true) {
     //  start timer countdown
-    console.log($(".timer-wrapper .clock-item "));
     let mm = parseInt($(".timer-wrapper .clock-item ").innerText.slice(5, 7));
     let hh = parseInt($(".timer-wrapper .clock-item ").innerText.slice(0, 3));
     function startTimer() {
@@ -346,7 +345,7 @@ setTimerWrapper.addEventListener("click", (e) => {
 });
 
 // ====================================WORLD TIME ZONE================================
-const API_KEY = "	C6KZF7GSDYOA";
+const API_KEY = "C6KZF7GSDYOA";
 // render data search box
 let data = "";
 timezone.forEach((item) => {
@@ -389,15 +388,12 @@ let showLoading = `<div class="loading-skeleton">
 
 // fetch data interval
 function fetchInterval(lat, lng, name) {
-  setInterval(function () {
-    fetch(
-      `http://api.timezonedb.com/v2.1/get-time-zone?key=${API_KEY}&format=json&by=position&lat=${lat}&lng=${lng}`
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        // $(".world-clock .clock-item").remove();
-        // hideLoading();
-        let worldClockItem = `<div class="clock-item">
+  fetch(
+    `http://api.timezonedb.com/v2.1/get-time-zone?key=${API_KEY}&format=json&by=position&lat=${lat}&lng=${lng}`
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      let worldClockItem = `<div class="clock-item">
                 <span>${name}</span>
                 <p class="time">
                   <span>${data.formatted.slice(0, 10)}</span>
@@ -407,14 +403,13 @@ function fetchInterval(lat, lng, name) {
                   )}</b></span>
                 </p>
               </div>`;
-        $(".world-clock .clock-bottom").innerHTML = worldClockItem;
-        $(".list-country").style.display = "none";
-        $(".world-clock .clock-top .clock-top-live").style.display = "block";
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, 5000);
+      $(".world-clock .clock-bottom").innerHTML = worldClockItem;
+      $(".list-country").style.display = "none";
+      $(".world-clock .clock-top .clock-top-live").style.display = "block";
+    })
+    .catch((error) => {
+      console.error(error);
+    });
 }
 
 // event show time in item  when click
@@ -437,7 +432,6 @@ if (data !== "") {
 $(".world-clock .search-country").addEventListener("click", (e) => {
   e.preventDefault();
   let value = $(".world-clock input").value.toLowerCase().trim();
-  console.log(value);
   timezone.forEach((item) => {
     if (value === item.name.toLowerCase().trim()) {
       $(".world-clock .clock-bottom").innerHTML = showLoading;
@@ -502,7 +496,6 @@ $(".stop-watch .start-alarm-btn").addEventListener("click", () => {
       $(".stop-watch .start-alarm-btn").innerText = "Start";
       clearInterval(stopWatchInterval);
       $(".stop-watch .clock-top-live").classList.remove("runWatch");
-
       break;
     default:
   }
@@ -511,7 +504,6 @@ $(".stop-watch .start-alarm-btn").addEventListener("click", () => {
 let getCount = 0;
 $(".stop-watch .get-alarm-btn").addEventListener("click", () => {
   getCount += 1;
-  console.log(getCount);
   let stopItem = `<div class="clock-item"><span class="number">(${getCount})</span class="number"><p>${sec.innerText}<span class='item' >s</span> : ${ms.innerText}<span class='item' >ms</span></p></div>`;
   $(".stop-watch .clock-bottom").insertAdjacentHTML("beforeend", stopItem);
 });
